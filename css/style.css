@@ -1,0 +1,41 @@
+html{
+  font-family: 'Open Sans', sans-serif;
+}
+.header{
+  padding-bottom: 2em;
+}
+
+.cards, .pool_header{
+  width: 45%;
+  float:left;
+  border-right: 1px solid black;
+  img{
+	  padding: 1em 1em 0 0;
+    cursor: pointer;
+  }
+}
+
+a{
+  background-color: teal;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.deck, .deck_header{
+  width: 45%;
+  float:left;
+  padding-left: 2em;
+  img{
+	  padding: 1em 1em 0 0;
+    cursor: pointer;
+  }
+}
+@media print { 
+  .deck{
+    width: 100%;
+  }
+  .cards, .header, .section_headers{
+    display: none;
+  }
+}

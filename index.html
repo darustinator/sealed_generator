@@ -1,0 +1,45 @@
+<html>
+	<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+		
+	</script>
+	<link href="./css/style.css" type="text/css" rel="stylesheet" ></link>
+	</head>
+	<body>
+    <div class="header">
+		<h3>Sealed gen</h3>
+    <p>Click "Refresh Cards" if it you haven't done so recently.</p>
+    <p class="updated_date"></p>
+		<a href="#" class="refresh_btn">Refresh Cards</a>
+		<a href="#" class="gen_btn">Generate pool</a>
+    <select class="sorting">
+      <option value="pack_order">Generated Order</option>
+      <option value="name">Name</option>
+      <option value="cmc">CMC</option>
+<!--       <option value="rarity">Rarity (Alphabetical)</option> -->
+      <option value="rarity_rank">Rarity</option>
+      <option value="colors">Color</option>
+    </select>
+      </div>
+    <div class="container">
+      <div class="section_headers">
+      <div class="pool_header">
+        <h3>Sealed Pool</h3>
+        <p>Click on any card in this section to add to your deck.</p>
+      </div>
+        <div class="deck_header">
+          <h3>Deck</h3>
+          <p>Click on any card in this section to remove from your deck.</p>
+      </div>
+         </div>
+		<div class="cards">
+			<img src="https://img.scryfall.com/cards/small/en/bng/118.jpg?1517813031" class="card"/>
+		</div>
+    <div class="deck">
+      
+    </div>
+    </div>
+	</body>
+	<script src="scripts/scripts.js"></script>
+</html>
