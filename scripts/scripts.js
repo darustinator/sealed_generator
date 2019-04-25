@@ -59,7 +59,7 @@ function getCards(){
               rarity_rank: rank(card.rarity),
               colors: card.color_identity.toString(),
               cmc: card.cmc,
-              image: card.image_uris.small
+              image: card.image_uris.normal
             }
 		  			switch(card.rarity) {
 		  		  	case 'common':
@@ -102,7 +102,7 @@ function getCards(){
               rarity_rank: rank(card.rarity),
               colors: card.color_identity.toString(),
               cmc: card.cmc,
-              image: card.image_uris.small
+              image: card.image_uris.normal
             }
 					if(card.promo == false){
 		  				switch(card.rarity) {
