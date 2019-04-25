@@ -132,7 +132,7 @@ function getCards(){
 
 function randCard(rarity, pack_num, card_count){
 	var random = Math.floor(Math.random() * rarity.length);
-  var random_card = rarity[random];
+  var random_card = Object.assign({}, rarity[random]);
   var padded_card_num =  ("0" + card_count).slice(-2);
   var pack_order = pack_num.toString() + padded_card_num.toString();
   random_card['pack_order'] = pack_order
