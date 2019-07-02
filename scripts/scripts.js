@@ -34,9 +34,9 @@ function getCards(){
 	var uncommons = new Array;
   var uncommonsPW = new Array;
 	var rares = new Array;
-  var raresPW = new Array;
+  // var raresPW = new Array;
 	var mythics = new Array;
-  var mythicsPW = new Array;
+  // var mythicsPW = new Array;
 	var basic_lands = new Array;
   var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
 
@@ -44,10 +44,10 @@ function getCards(){
   // console.log('a');
 
   // Scryfall query parameters:
-  // s:war (War of the Spark)
+  // s:m20 (Core set 202)
   // -type:planeswalker (fetching the planeswalkers separately)
   // is:booster (Excludes promos, planeswalker deck cards, etc)
-	$.getJSON("https://api.scryfall.com/cards/search?q=s%3Awar+-type%3Aplaneswalker+is%3Abooster", function( data ){
+	$.getJSON("https://api.scryfall.com/cards/search?q=s%3Am20+is%3Abooster", function( data ){
 		
 		$.each( data, function( key, val ) {
 
@@ -84,50 +84,14 @@ function getCards(){
   	localStorage.setItem('uncommons', JSON.stringify(uncommons));
   	localStorage.setItem('rares', JSON.stringify(rares));
   	localStorage.setItem('mythics', JSON.stringify(mythics));
+  	
   });
-  
-  // Scryfall query parameters:
-  // s:war (War of the Spark)
-  // type:planeswalker (fetching just the planeswalkers)
-  // is:booster (Excludes promos, planeswalker deck cards, etc)
-	$.getJSON("https://api.scryfall.com/cards/search?q=s%3Awar+type%3Aplaneswalker+is%3Abooster", function( data ){
-		
-		$.each( data, function( key, val ) {
 
-			if(key == 'data'){
-				val.forEach(function(card){
-          var card_obj = {
-              name: card.name,
-              rarity: card.rarity,
-              rarity_rank: rank(card.rarity),
-              colors: card.color_identity.toString(),
-              cmc: card.cmc,
-              image: card.image_uris.normal
-            }
-					if(card.promo == false){
-		  				switch(card.rarity) {
-		  				case 'uncommon':
-							uncommonsPW.push(card_obj);
-		  				break;
-		  				case 'rare':
-							raresPW.push(card_obj);
-		  				break;
-		  				default:
-							mythicsPW.push(card_obj);
-		  				}
-		  			}
-		  		});
-		  }
-    });
 
-  	localStorage.setItem('uncommonsPW', JSON.stringify(uncommonsPW));
-  	localStorage.setItem('raresPW', JSON.stringify(raresPW));
-  	localStorage.setItem('mythicsPW', JSON.stringify(mythicsPW));
     localStorage.setItem('updated_date', utc);
     updated_date.empty();
-    updated_date.append('Last Updated: ' + localStorage.getItem('updated_date').toString());
-  });
-  
+    updated_date.append('Last Updated: ' + localStorage.getItem('updated_date').toString());	
+
 }
 
 function randCard(rarity, pack_num, card_count){
@@ -158,32 +122,16 @@ function genPack(pack_num){
     card_count++;
 	}
 
-  if(Math.floor(Math.random() * 4) == 3){
 	  while(uncommon_count <= 3){
 	  	randCard(uncommons, pack_num, card_count);
 	  	uncommon_count++;
       card_count++;
 	  }
 	  if(Math.floor(Math.random() * 8) == 7){
-	  	randCard(mythicsPW, pack_num, card_count);
-	  }else{
-	  	randCard(raresPW, pack_num, card_count);
-	  }
-  }else{
-	  while(uncommon_count <= 2){
-	  	randCard(uncommons, pack_num, card_count);
-	  	uncommon_count++;
-      card_count++;
-	  }
-    randCard(uncommonsPW, pack_num, card_count);
-    uncommon_count++;
-    card_count++;
-	  if(Math.floor(Math.random() * 8) == 7){
 	  	randCard(mythics, pack_num, card_count);
 	  }else{
 	  	randCard(rares, pack_num, card_count);
 	  }
-  }
 }
 
 function generatePool(){
@@ -232,6 +180,7 @@ $('.sorting').change(function(){
     return a[axis] - b[axis];
     }
 });
+  localStorage.setItem('sealed_pool', JSON.stringify(sealed_pool));
   cards.empty();
     sealed_pool.forEach(function(card){
     cards.append('<img src = "' + card.image + '" onclick="addToDeck('+ card.pack_order +')" class="card"/>');
