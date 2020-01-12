@@ -44,10 +44,10 @@ function getCards(){
   // console.log('a');
 
   // Scryfall query parameters:
-  // s:m20 (Core set 202)
+  // s:thb Theros Beyond Death
   // -type:planeswalker (fetching the planeswalkers separately)
   // is:booster (Excludes promos, planeswalker deck cards, etc)
-	$.getJSON("https://api.scryfall.com/cards/search?q=s%3Am20+is%3Abooster", function( data ){
+	$.getJSON("https://api.scryfall.com/cards/search?q=s%3Athb+is%3Abooster", function( data ){
 		
 		$.each( data, function( key, val ) {
 
