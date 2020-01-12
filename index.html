@@ -4,7 +4,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 		
 	</script>
-	<link href="./css/style.css" type="text/css" rel="stylesheet" ></link>
+	<link href="./css/style.css?1" type="text/css" rel="stylesheet" ></link>
 	</head>
 	<body>
     <div class="header">
@@ -27,22 +27,27 @@
       </div>
     <div class="container">
       <div class="section_headers">
-      <div class="pool_header">
-        <h3>Sealed Pool</h3>
-        <p>Click on any card in this section to add to your deck.</p>
-      </div>
+        <div class="toggle">
+          <a href="javascript:void(0)" class="pool_toggle toggle">Hide Pool</a>
+          <a href="javascript:void(0)" class="deck_toggle toggle">Hide Deck</a>
+        </div>
+        <div class="pool_header">
+          <h3>Sealed Pool</h3>
+          <p>Click on any card in this section to add to your deck.</p>
+        </div>
         <div class="deck_header">
           <h3>Deck</h3>
           <p>Click on any card in this section to remove from your deck.</p>
+        </div>
       </div>
-         </div>
-		<div class="cards">
-			<img src="https://img.scryfall.com/cards/small/en/bng/118.jpg?1517813031" class="card"/>
-		</div>
-    <div class="deck">
-      
-    </div>
+  		<div class="cards">
+  			<img src="https://img.scryfall.com/cards/small/en/bng/118.jpg?1517813031" class="card"/>
+        
+  		</div>
+      <div class="deck">
+
+      </div>
     </div>
 	</body>
-	<script src="scripts/scripts.js?1"></script>
+	<script src="scripts/scripts.js?2"></script>
 </html>

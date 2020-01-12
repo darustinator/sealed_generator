@@ -224,3 +224,33 @@ function removefromDeck(packorder){
     cards.append('<img src = "' + card.image + '" onclick="addToDeck('+ card.pack_order +')" class="card"/>');
   });
 }
+
+$('.pool_toggle').click(function(){
+    $('.cards').toggleClass('hidden');
+    $('.pool_header').toggleClass('hidden');
+
+    if($('.pool_header').hasClass('hidden')){
+      $(this).text('Show Pool');
+      $('.deck_header').addClass('full_screen');
+      $('.deck').addClass('full_screen');
+    }else{
+      $(this).text('Hide Pool');
+      $('.deck_header').removeClass('full_screen');
+      $('.deck').removeClass('full_screen');
+    }
+});
+
+$('.deck_toggle').click(function(){
+    $('.deck').toggleClass('hidden');
+    $('.deck_header').toggleClass('hidden');
+    if($('.deck_header').hasClass('hidden')){
+      $(this).text('Show Deck');
+      $('.pool_header').addClass('full_screen');
+      $('.cards').addClass('full_screen');
+    }else{
+      $(this).text('Hide Deck');
+      $('.pool_header').removeClass('full_screen');
+      $('.cards').removeClass('full_screen');
+    }
+});
+

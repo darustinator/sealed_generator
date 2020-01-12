@@ -31,12 +31,26 @@ a{
     cursor: pointer;
   }
 }
-
+.toggles{
+  float: left;
+  width: 100%;
+}
+.toggles > a{
+  padding: 1em;
+}
 .card{
 	width:25%;
 }
 .card:hover{
 	cursor: pointer;
+}
+.hidden{
+  visibility: hidden;
+  height: 0px;
+}
+.full_screen{
+  width: 94%;
+  border-right: 0;
 }
 @media print { 
   .deck{
